@@ -120,7 +120,7 @@ function Elixa() {
           alt=""
           width={1920}
           height={940}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-contain sm:object-cover"
         />
         <div
           className="absolute inset-0"
@@ -158,7 +158,7 @@ function Elixa() {
             ].map((s) => (
               <li key={s.en} className="elixa-panel px-4 py-4">
                 <span className="elixa-title block text-lg text-[color:var(--gold)]">{s.n}</span>
-                <Bi ar={s.ar} en={s.en} arClass="ar-heading text-lg" />
+                <Bi ar={s.ar} en={s.en} arClass="ar-heading text-xs sm:text-lg" />
               </li>
             ))}
           </ol>
@@ -176,8 +176,9 @@ function Elixa() {
 
       {/* ---------------- LAB ---------------- */}
       <div className="relative">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ clipPath: "inset(0)" }}>
-        <div className="fixed -inset-8 h-[calc(100lvh+4rem)] bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(4px)", opacity: 0.4 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(4px)", opacity: 0.4 }} />
+        <div className="absolute inset-x-0 top-0 h-64" style={{ background: "linear-gradient(to bottom, color-mix(in oklab, var(--background) 92%, transparent), transparent)" }} />
       </div>
       <main id="lab" className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <section className="text-center">
@@ -194,7 +195,7 @@ function Elixa() {
             <span className="en-line mt-1 block">Pick a plant from the shelf</span>
           </h3>
 
-          <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          <ul className="mt-6 grid grid-cols-5 gap-1.5 sm:gap-3">
             {plants.map((p) => {
               const active = selected?.id === p.id;
               const done = made.includes(p.id);
@@ -204,7 +205,7 @@ function Elixa() {
                     type="button"
                     onClick={() => pickPlant(p)}
                     aria-pressed={active}
-                    className={`elixa-panel flex w-full flex-col items-center gap-2 px-3 py-5 transition duration-300 hover:-translate-y-1 ${
+                    className={`elixa-panel flex w-full min-w-0 flex-col items-center gap-1 px-1 py-3 text-[10px] sm:gap-2 sm:px-3 sm:py-5 sm:text-base transition duration-300 hover:-translate-y-1 ${
                       active ? "border-[color:var(--teal)]" : ""
                     }`}
                     style={active ? { boxShadow: `0 0 26px ${p.leaf.glow}66` } : undefined}
@@ -362,7 +363,7 @@ function Elixa() {
             />
           </div>
 
-          <ul className="mt-6 grid grid-cols-2 gap-3 border-b-4 border-[color:var(--gold)]/35 pb-6 sm:grid-cols-3 lg:grid-cols-5">
+          <ul className="mt-6 grid border-b-4 border-[color:var(--gold)]/35 pb-6 grid-cols-5 gap-1.5 sm:gap-3">
             {plants.map((p) => {
               const done = made.includes(p.id);
               return (
