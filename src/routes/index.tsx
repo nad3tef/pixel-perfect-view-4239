@@ -158,7 +158,7 @@ function Elixa() {
             ].map((s) => (
               <li key={s.en} className="elixa-panel px-4 py-4">
                 <span className="elixa-title block text-lg text-[color:var(--gold)]">{s.n}</span>
-                <Bi ar={s.ar} en={s.en} arClass="ar-heading text-lg" />
+                <Bi ar={s.ar} en={s.en} arClass="ar-heading text-xs sm:text-lg" />
               </li>
             ))}
           </ol>
@@ -205,7 +205,7 @@ function Elixa() {
                     type="button"
                     onClick={() => pickPlant(p)}
                     aria-pressed={active}
-                    className={`elixa-panel flex w-full flex-col items-center gap-2 px-3 py-5 transition duration-300 hover:-translate-y-1 ${
+                    className={`elixa-panel flex w-full min-w-0 flex-col items-center gap-1 px-1 py-3 text-[10px] sm:gap-2 sm:px-3 sm:py-5 sm:text-base transition duration-300 hover:-translate-y-1 ${
                       active ? "border-[color:var(--teal)]" : ""
                     }`}
                     style={active ? { boxShadow: `0 0 26px ${p.leaf.glow}66` } : undefined}
