@@ -5,7 +5,7 @@ import heroAsset from "@/assets/background.png.asset.json";
 const heroImg = heroAsset.url;
 import catAsset from "@/assets/lab-cat.png.asset.json";
 const catImg = catAsset.url;
-import fractalAsset from "@/assets/fractal.jpg.asset.json";
+import fractalAsset from "@/assets/ocean-bg.jpg.asset.json";
 import { LeafIllustration } from "@/components/elixa/LeafIllustration";
 import { needs, plants, type NeedId, type Plant } from "@/components/elixa/data";
 
@@ -177,7 +177,7 @@ function Elixa() {
       {/* ---------------- LAB ---------------- */}
       <div className="relative">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(4px)", opacity: 0.4 }} />
+        <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(6px)", opacity: 0.4 }} />
         <div className="absolute inset-x-0 top-0 h-64" style={{ background: "linear-gradient(to bottom, color-mix(in oklab, var(--background) 92%, transparent), transparent)" }} />
       </div>
       <main id="lab" className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
