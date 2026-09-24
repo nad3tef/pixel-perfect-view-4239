@@ -176,8 +176,8 @@ function Elixa() {
 
       {/* ---------------- LAB ---------------- */}
       <div className="relative">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(4px)", opacity: 0.4 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ clipPath: "inset(0)" }}>
+        <div className="fixed -inset-8 h-[calc(100lvh+4rem)] bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(4px)", opacity: 0.4 }} />
       </div>
       <main id="lab" className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <section className="text-center">
