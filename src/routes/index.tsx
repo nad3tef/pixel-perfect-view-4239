@@ -121,6 +121,7 @@ function Elixa() {
           width={1920}
           height={940}
           className="absolute inset-0 h-full w-full object-contain sm:object-cover"
+          style={{ maskImage: "linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%)" }}
         />
         <div
           className="absolute inset-0"
@@ -178,7 +179,7 @@ function Elixa() {
       <div className="relative">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(6px)", opacity: 0.4 }} />
-        <div className="absolute inset-x-0 top-0 h-64" style={{ background: "linear-gradient(to bottom, color-mix(in oklab, var(--background) 92%, transparent), transparent)" }} />
+        <div className="absolute inset-x-0 top-0 h-96" style={{ background: "linear-gradient(to bottom, var(--background) 0%, color-mix(in oklab, var(--background) 70%, transparent) 40%, transparent 100%)" }} />
       </div>
       <main id="lab" className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
         <section className="text-center">
