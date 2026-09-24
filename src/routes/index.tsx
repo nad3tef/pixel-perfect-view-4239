@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 
 import heroAsset from "@/assets/background.png.asset.json";
 const heroImg = heroAsset.url;
-import catImg from "@/assets/elixa-cat.jpg";
+import catAsset from "@/assets/lab-cat.png.asset.json";
+const catImg = catAsset.url;
 import { LeafIllustration } from "@/components/elixa/LeafIllustration";
 import { needs, plants, type NeedId, type Plant } from "@/components/elixa/data";
 
