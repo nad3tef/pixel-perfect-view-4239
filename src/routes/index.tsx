@@ -121,6 +121,7 @@ function Elixa() {
           width={1920}
           height={940}
           className="absolute inset-0 h-full w-full object-contain sm:object-cover"
+          style={{ maskImage: "linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%)" }}
         />
         <div
           className="absolute inset-0"
