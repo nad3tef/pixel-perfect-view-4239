@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 
-import heroImg from "@/assets/elixa-hero.jpg";
+import heroAsset from "@/assets/background.png.asset.json";
+const heroImg = heroAsset.url;
 import catImg from "@/assets/elixa-cat.jpg";
 import { LeafIllustration } from "@/components/elixa/LeafIllustration";
 import { needs, plants, type NeedId, type Plant } from "@/components/elixa/data";
@@ -116,7 +117,7 @@ function Elixa() {
           src={heroImg}
           alt=""
           width={1920}
-          height={1280}
+          height={940}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
