@@ -9,6 +9,7 @@ export function ElixirLogo({ className = "" }: ElixirLogoProps) {
       className={className}
       role="img"
       aria-label="Elixir logo"
+      direction="ltr"
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>Elixir logo</title>
@@ -20,6 +21,8 @@ export function ElixirLogo({ className = "" }: ElixirLogoProps) {
           fontSize="150"
           fontWeight="900"
           letterSpacing="0"
+          direction="ltr"
+          style={{ unicodeBidi: "bidi-override" }}
           transform="rotate(-1 260 95)"
         >
           Elixir
