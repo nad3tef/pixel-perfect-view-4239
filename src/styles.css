@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * ELIXA design system — bioluminescent botany lab.
+ * Elixir design system — bioluminescent botany lab.
  * Palette: deep indigo base + neon teal, violet, magenta, gold.
  */
 
@@ -101,7 +101,7 @@
 
 /* ---------- Shimmering background ---------- */
 
-@utility elixa-shimmer {
+@utility elixir-shimmer {
   position: fixed;
   inset: 0;
   z-index: -2;
@@ -123,10 +123,10 @@
     ),
     var(--background);
   background-size: 180% 180%;
-  animation: elixa-drift 38s ease-in-out infinite alternate;
+  animation: elixir-drift 38s ease-in-out infinite alternate;
 }
 
-@utility elixa-sparkle {
+@utility elixir-sparkle {
   position: fixed;
   inset: 0;
   z-index: -1;
@@ -140,10 +140,10 @@
     radial-gradient(1.6px 1.6px at 24% 80%, color-mix(in oklab, var(--teal) 70%, transparent), transparent);
   background-size: 620px 620px;
   opacity: 0.55;
-  animation: elixa-twinkle 7s ease-in-out infinite;
+  animation: elixir-twinkle 7s ease-in-out infinite;
 }
 
-@utility elixa-panel {
+@utility elixir-panel {
   background: color-mix(in oklab, var(--card) 75%, transparent);
   backdrop-filter: blur(var(--panel-blur));
   -webkit-backdrop-filter: blur(var(--panel-blur));
@@ -151,7 +151,7 @@
   border-radius: var(--radius);
 }
 
-@utility elixa-title {
+@utility elixir-title {
   font-family: var(--font-display);
   letter-spacing: 0.22em;
   text-shadow:
@@ -173,7 +173,7 @@
   color: var(--muted-foreground);
 }
 
-@keyframes elixa-drift {
+@keyframes elixir-drift {
   0% {
     background-position: 0% 0%;
   }
@@ -182,7 +182,7 @@
   }
 }
 
-@keyframes elixa-twinkle {
+@keyframes elixir-twinkle {
   0%,
   100% {
     opacity: 0.3;
@@ -192,7 +192,7 @@
   }
 }
 
-@keyframes elixa-fill {
+@keyframes elixir-fill {
   from {
     height: 0%;
   }
@@ -201,7 +201,7 @@
   }
 }
 
-@keyframes elixa-bubble {
+@keyframes elixir-bubble {
   0% {
     transform: translateY(0) scale(0.6);
     opacity: 0;
@@ -215,7 +215,7 @@
   }
 }
 
-@keyframes elixa-rise {
+@keyframes elixir-rise {
   from {
     opacity: 0;
     transform: translateY(14px);
@@ -226,7 +226,7 @@
   }
 }
 
-@keyframes elixa-pop {
+@keyframes elixir-pop {
   0% {
     opacity: 0;
     transform: scale(0.88);
@@ -241,28 +241,28 @@
   }
 }
 
-@utility elixa-liquid {
-  animation: elixa-fill 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+@utility elixir-liquid {
+  animation: elixir-fill 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@utility elixa-rise {
-  animation: elixa-rise 0.5s ease-out both;
+@utility elixir-rise {
+  animation: elixir-rise 0.5s ease-out both;
 }
 
-@utility elixa-pop {
-  animation: elixa-pop 0.45s cubic-bezier(0.34, 1.3, 0.64, 1) both;
+@utility elixir-pop {
+  animation: elixir-pop 0.45s cubic-bezier(0.34, 1.3, 0.64, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .elixa-shimmer,
-  .elixa-sparkle,
-  .elixa-liquid,
-  .elixa-rise,
-  .elixa-pop,
-  .elixa-bubble {
+  .elixir-shimmer,
+  .elixir-sparkle,
+  .elixir-liquid,
+  .elixir-rise,
+  .elixir-pop,
+  .elixir-bubble {
     animation: none !important;
   }
 }

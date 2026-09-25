@@ -3,14 +3,14 @@ import { useEffect, useMemo, useState } from "react";
 
 import heroAsset from "@/assets/background.png.asset.json";
 const heroImg = heroAsset.url;
-import mobileHeroAsset from "@/assets/elixa-mobile-hero.jpg.asset.json";
+import mobileHeroAsset from "@/assets/elixir-mobile-hero.jpg.asset.json";
 const mobileHeroImg = mobileHeroAsset.url;
 import catAsset from "@/assets/lab-cat.png.asset.json";
 const catImg = catAsset.url;
 import fractalAsset from "@/assets/ocean-bg.jpg.asset.json";
-import { ElixirLogo } from "@/components/elixa/ElixirLogo";
-import { LeafIllustration } from "@/components/elixa/LeafIllustration";
-import { needs, plants, type NeedId, type Plant } from "@/components/elixa/data";
+import { ElixirLogo } from "@/components/elixir/ElixirLogo";
+import { LeafIllustration } from "@/components/elixir/LeafIllustration";
+import { needs, plants, type NeedId, type Plant } from "@/components/elixir/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,7 +34,8 @@ export const Route = createFileRoute("/")({
   component: Elixir,
 });
 
-const STORAGE_KEY = "elixa-collection-v1";
+const STORAGE_KEY = "elixir-collection-v1";
+const LEGACY_STORAGE_KEY = "el" + "ixa-collection-v1";
 
 function Bi({
   ar,
@@ -64,7 +65,7 @@ function Elixir() {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem(LEGACY_STORAGE_KEY);
       if (raw) setMade(JSON.parse(raw) as string[]);
     } catch {
       /* storage unavailable — play without saving */
@@ -113,8 +114,8 @@ function Elixir() {
 
   return (
     <div dir="rtl" className="relative min-h-screen">
-      <div className="elixa-shimmer" aria-hidden="true" />
-      <div className="elixa-sparkle" aria-hidden="true" />
+      <div className="elixir-shimmer" aria-hidden="true" />
+      <div className="elixir-sparkle" aria-hidden="true" />
 
       {/* ---------------- HERO ---------------- */}
       <header className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 py-20 text-center">
@@ -170,8 +171,8 @@ function Elixir() {
               { n: "٢", ar: "المركب الفعّال", en: "Active compound" },
               { n: "٣", ar: "المنتج", en: "Product" },
             ].map((s) => (
-              <li key={s.en} className="elixa-panel px-4 py-4">
-                <span className="elixa-title block text-lg text-[color:var(--gold)]">{s.n}</span>
+              <li key={s.en} className="elixir-panel px-4 py-4">
+                <span className="elixir-title block text-lg text-[color:var(--gold)]">{s.n}</span>
                 <Bi ar={s.ar} en={s.en} arClass="ar-heading text-xs sm:text-lg" />
               </li>
             ))}
@@ -219,7 +220,7 @@ function Elixir() {
                     type="button"
                     onClick={() => pickPlant(p)}
                     aria-pressed={active}
-                    className={`elixa-panel flex w-full min-w-0 flex-col items-center gap-1 px-1 py-3 text-[10px] sm:gap-2 sm:px-3 sm:py-5 sm:text-base transition duration-300 hover:-translate-y-1 ${
+                    className={`elixir-panel flex w-full min-w-0 flex-col items-center gap-1 px-1 py-3 text-[10px] sm:gap-2 sm:px-3 sm:py-5 sm:text-base transition duration-300 hover:-translate-y-1 ${
                       active ? "border-[color:var(--teal)]" : ""
                     }`}
                     style={active ? { boxShadow: `0 0 26px ${p.leaf.glow}66` } : undefined}
@@ -239,7 +240,7 @@ function Elixir() {
         {/* Step 2 + 3 — beaker & needs */}
         <section className="mt-12 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           {/* Beaker */}
-          <div className="elixa-panel flex flex-col items-center gap-5 p-6">
+          <div className="elixir-panel flex flex-col items-center gap-5 p-6">
             <h3 className="ar-heading self-start text-2xl">
               ٢ — البيكر والمركب الفعّال
               <span className="en-line mt-1 block">The beaker and its active compound</span>
@@ -253,7 +254,7 @@ function Elixir() {
                 {selected && (
                   <div
                     key={selected.id + String(cloudy)}
-                    className="elixa-liquid absolute inset-x-0 bottom-0"
+                    className="elixir-liquid absolute inset-x-0 bottom-0"
                     style={{
                       background: cloudy
                         ? "linear-gradient(to top, #8c93a8, #b9bfd0)"
@@ -269,7 +270,7 @@ function Elixir() {
                           className="absolute bottom-2 h-2 w-2 rounded-full bg-white/70"
                           style={{
                             left: `${20 + i * 28}%`,
-                            animation: `elixa-bubble ${2.4 + i * 0.6}s ${i * 0.5}s ease-in infinite`,
+                            animation: `elixir-bubble ${2.4 + i * 0.6}s ${i * 0.5}s ease-in infinite`,
                           }}
                         />
                       ))}
@@ -281,7 +282,7 @@ function Elixir() {
 
             <div className="min-h-20 text-center">
               {selected ? (
-                <div className="elixa-rise" key={selected.id}>
+                <div className="elixir-rise" key={selected.id}>
                   <Bi
                     ar={`المركب الفعّال: ${selected.compoundAr}`}
                     en={`Active compound: ${selected.compound}`}
@@ -299,7 +300,7 @@ function Elixir() {
           </div>
 
           {/* Needs */}
-          <div className="elixa-panel flex flex-col gap-4 p-6">
+          <div className="elixir-panel flex flex-col gap-4 p-6">
             <h3 className="ar-heading text-2xl">
               ٣ — وصّل المركب باحتياج البشرة
               <span className="en-line mt-1 block">Match the compound to a skin need</span>
@@ -327,7 +328,7 @@ function Elixir() {
             {/* Result */}
             <div className="min-h-32">
               {hint && selected && (
-                <div className="elixa-rise rounded-[var(--radius-md)] border border-[color:var(--gold)]/45 bg-[color:var(--gold)]/10 p-4">
+                <div className="elixir-rise rounded-[var(--radius-md)] border border-[color:var(--gold)]/45 bg-[color:var(--gold)]/10 p-4">
                   <Bi
                     ar={`محاولة حلوة! بس ${selected.ar} أقوى في حتة تانية — اقرا التلميح وجرّب تاني.`}
                     en="Nice try! This plant shines somewhere else — read the hint and try again."
@@ -341,7 +342,7 @@ function Elixir() {
               )}
 
               {justMade && (
-                <div className="elixa-pop flex items-center gap-4 rounded-[var(--radius-md)] border border-[color:var(--teal)]/50 bg-white/5 p-4">
+                <div className="elixir-pop flex items-center gap-4 rounded-[var(--radius-md)] border border-[color:var(--teal)]/50 bg-white/5 p-4">
                   <ProductBottle plant={justMade} />
                   <div>
                     <Bi
@@ -383,7 +384,7 @@ function Elixir() {
               return (
                 <li
                   key={p.id}
-                  className="elixa-panel flex flex-col items-center gap-2 px-3 py-4 text-center"
+                  className="elixir-panel flex flex-col items-center gap-2 px-3 py-4 text-center"
                   style={done ? { boxShadow: `0 0 22px ${p.accent}44` } : { opacity: 0.45 }}
                 >
                   {done ? (
@@ -407,7 +408,7 @@ function Elixir() {
         {complete && (
           <section
             dir="ltr"
-            className="elixa-pop mt-12 overflow-hidden rounded-[var(--radius-xl)] border border-[color:var(--gold)]/45"
+            className="elixir-pop mt-12 overflow-hidden rounded-[var(--radius-xl)] border border-[color:var(--gold)]/45"
             style={{ boxShadow: "var(--glow-magenta)" }}
           >
             <div className="grid items-center gap-6 bg-white/5 p-6 backdrop-blur-md sm:grid-cols-[minmax(0,280px)_minmax(0,1fr)] sm:p-10">
@@ -420,7 +421,7 @@ function Elixir() {
                 className="mx-auto w-full max-w-[280px] rounded-[var(--radius-lg)]"
               />
               <div className="text-center sm:text-left">
-                <h2 className="elixa-title text-2xl sm:text-4xl">Congrats, champ!</h2>
+                <h2 className="elixir-title text-2xl sm:text-4xl">Congrats, champ!</h2>
                 <p className="mt-3 text-lg text-foreground/90">
                   You&apos;re now a cosmetics maker.
                 </p>
