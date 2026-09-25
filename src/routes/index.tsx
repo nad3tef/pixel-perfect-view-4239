@@ -1,13 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 
-import heroAsset from "@/assets/background.png.asset.json";
-const heroImg = heroAsset.url;
-import mobileHeroAsset from "@/assets/elixir-mobile-hero.jpg.asset.json";
-const mobileHeroImg = mobileHeroAsset.url;
-import catAsset from "@/assets/lab-cat.png.asset.json";
-const catImg = catAsset.url;
-import fractalAsset from "@/assets/ocean-bg.jpg.asset.json";
+import heroImg from "@/assets/background.png";
+import mobileHeroImg from "@/assets/elixir-mobile-hero.jpg";
+import catImg from "@/assets/lab-cat.png";
+import fractalImg from "@/assets/ocean-bg.jpg";
 import { ElixirLogo } from "@/components/elixir/ElixirLogo";
 import { LeafIllustration } from "@/components/elixir/LeafIllustration";
 import { needs, plants, type NeedId, type Plant } from "@/components/elixir/data";
@@ -192,7 +189,7 @@ function Elixir() {
       {/* ---------------- LAB ---------------- */}
       <div className="relative">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalAsset.url})`, filter: "blur(6px)", opacity: 0.4 }} />
+        <div className="absolute -inset-8 bg-cover bg-center" style={{ backgroundImage: `url(${fractalImg})`, filter: "blur(6px)", opacity: 0.4 }} />
         <div className="absolute inset-x-0 top-0 h-96" style={{ background: "linear-gradient(to bottom, var(--background) 0%, color-mix(in oklab, var(--background) 70%, transparent) 40%, transparent 100%)" }} />
       </div>
       <main id="lab" className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
