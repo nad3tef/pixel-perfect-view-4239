@@ -173,7 +173,7 @@ function Elixir() {
             ].map((s) => (
               <li key={s.en} className="elixir-panel px-4 py-4">
                 <span className="elixir-title block text-lg text-[color:var(--gold)]">{s.n}</span>
-                <Bi ar={s.ar} en={s.en} arClass="ar-heading text-xs sm:text-lg" />
+                <Bi ar={s.ar} en={s.en} arClass="ar-heading text-sm sm:text-lg" enClass="text-xs sm:text-sm" />
               </li>
             ))}
           </ol>

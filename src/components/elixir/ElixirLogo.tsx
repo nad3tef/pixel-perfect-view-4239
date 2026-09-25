@@ -15,15 +15,16 @@ export function ElixirLogo({ className = "" }: ElixirLogoProps) {
       <title>Elixir logo</title>
       <g fill="currentColor">
         <text
-          x="20"
+          x="18"
           y="145"
           fontFamily="Lalezar, Changa, sans-serif"
           fontSize="150"
           fontWeight="900"
           letterSpacing="0"
           direction="ltr"
+          textLength="482"
+          lengthAdjust="spacingAndGlyphs"
           style={{ unicodeBidi: "bidi-override" }}
-          transform="rotate(-1 260 95)"
         >
           Elixir
         </text>
