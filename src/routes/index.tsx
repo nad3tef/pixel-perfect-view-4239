@@ -3,6 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 
 import heroAsset from "@/assets/background.png.asset.json";
 const heroImg = heroAsset.url;
+import mobileHeroAsset from "@/assets/elixa-mobile-hero.jpg.asset.json";
+const mobileHeroImg = mobileHeroAsset.url;
 import catAsset from "@/assets/lab-cat.png.asset.json";
 const catImg = catAsset.url;
 import fractalAsset from "@/assets/ocean-bg.jpg.asset.json";
@@ -116,11 +118,19 @@ function Elixa() {
       {/* ---------------- HERO ---------------- */}
       <header className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 py-20 text-center">
         <img
+          src={mobileHeroImg}
+          alt=""
+          width={768}
+          height={1374}
+          className="absolute inset-0 h-full w-full object-cover sm:hidden"
+          style={{ maskImage: "linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%)" }}
+        />
+        <img
           src={heroImg}
           alt=""
           width={1920}
           height={940}
-          className="absolute inset-0 h-full w-full object-contain sm:object-cover"
+          className="absolute inset-0 hidden h-full w-full object-contain sm:block sm:object-cover"
           style={{ maskImage: "linear-gradient(to bottom, #000 0%, #000 60%, transparent 100%)" }}
         />
         <div
