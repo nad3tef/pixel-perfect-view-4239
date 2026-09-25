@@ -8,19 +8,20 @@ const mobileHeroImg = mobileHeroAsset.url;
 import catAsset from "@/assets/lab-cat.png.asset.json";
 const catImg = catAsset.url;
 import fractalAsset from "@/assets/ocean-bg.jpg.asset.json";
+import { ElixirLogo } from "@/components/elixa/ElixirLogo";
 import { LeafIllustration } from "@/components/elixa/LeafIllustration";
 import { needs, plants, type NeedId, type Plant } from "@/components/elixa/data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ELIXA — لعبة النبات والكيمياء في مستحضرات التجميل" },
+      { title: "Elixir — لعبة النبات والكيمياء في مستحضرات التجميل" },
       {
         name: "description",
         content:
-          "ELIXA: an interactive bilingual formulation lab linking botany and chemistry. Pick a plant, reveal its active compound, and craft cosmetic products.",
+          "Elixir: an interactive bilingual formulation lab linking botany and chemistry. Pick a plant, reveal its active compound, and craft cosmetic products.",
       },
-      { property: "og:title", content: "ELIXA — Botany meets cosmetic chemistry" },
+      { property: "og:title", content: "Elixir — Botany meets cosmetic chemistry" },
       {
         property: "og:description",
         content:
@@ -30,7 +31,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Elixa,
+  component: Elixir,
 });
 
 const STORAGE_KEY = "elixa-collection-v1";
@@ -54,7 +55,7 @@ function Bi({
   );
 }
 
-function Elixa() {
+function Elixir() {
   const [selected, setSelected] = useState<Plant | null>(null);
   const [made, setMade] = useState<string[]>([]);
   const [hint, setHint] = useState<string | null>(null);
@@ -143,7 +144,9 @@ function Elixa() {
         />
 
         <div className="relative z-10 flex max-w-3xl flex-col items-center gap-7">
-          <h1 className="elixa-title text-5xl leading-none sm:text-7xl md:text-8xl">ELIXA</h1>
+          <h1 className="m-0 flex w-full justify-center">
+            <ElixirLogo className="h-auto w-[min(82vw,360px)] text-foreground sm:w-[440px] md:w-[520px]" />
+          </h1>
 
           <p className="ar-heading text-xl text-balance sm:text-2xl">
             لما النبات يقابل الكيمياء… يطلع مستحضر تجميل
@@ -153,10 +156,10 @@ function Elixa() {
           </p>
 
           <p className="max-w-xl text-sm leading-relaxed text-foreground/85 sm:text-base">
-            في ELIXA هتلعب دور مطوّر تركيبات: تختار نبات، تكتشف المركب الفعّال اللي جواه، وتوصّله
+            في Elixir هتلعب دور مطوّر تركيبات: تختار نبات، تكتشف المركب الفعّال اللي جواه، وتوصّله
             بالاحتياج الصح للبشرة.
             <span className="en-line mt-1.5 block">
-              In ELIXA you play a formulator: choose a plant, uncover its active compound, and match
+              In Elixir you play a formulator: choose a plant, uncover its active compound, and match
               it to the right skin need.
             </span>
           </p>
